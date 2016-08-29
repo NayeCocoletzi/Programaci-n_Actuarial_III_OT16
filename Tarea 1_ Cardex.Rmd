@@ -1,0 +1,90 @@
+---
+title: 'Tarea 1: Cardex'
+author: "Cocoletzi Conde Anayeli"
+date: "29 de agosto de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+# Primer Semestre
+  
+  *Programación Actuarial I                 05
+  
+  *Introducción a la Profeción Actuarial    08
+  
+  *DHPC                                     09
+  
+  *Conceptos de Cálculo                     05
+  
+  *Matematicas Basicas                      07
+  
+  *Problemas de Matematicas Basicas         07
+  
+     Promedio                                 7.75
+
+# Segundo Semestre
+  
+  *Teoria del Interes I                     09
+  
+  *Microeconomia                            09
+  
+  *Formación Humana y Social                10
+  
+  *Geometria Analitica                      09
+  
+  *Conceptos de Cálculo                     08
+  
+  *Teoria de Ecuaciones                     07
+  
+    Promedio                                 8.66
+
+# Tercer Semesre
+  
+  *Programación Actuarial II                08
+  
+  *Teoria del Interes II                    08
+  
+  *Algebra Lineal                           07
+  
+  *Macroeconomia                            07
+  
+  *Contabilidad General                     10
+  
+  *Cálculo Diferencial                      10
+  
+    Promedio                                 8.33
+
+# Cuarto Semestre
+  
+  *Sistema Financiero Mexicano              10
+  
+  *Cálculo Integral                         10
+  
+  *DHTIC                                    10
+  
+  *Demografia                               07
+  
+  *Programación Actuarial II                07
+  
+  *Introducción a las Estructuras Algebraicas 05
+  
+    Promedio                                 8.33
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
