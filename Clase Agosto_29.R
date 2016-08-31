@@ -106,3 +106,78 @@ m3
 m4 <- cbind(m2,y)
 m4
 
+#Factores
+x <- factor(c("si","no","si","si","no", "si","no"))
+x
+table(x)
+unclass(x)
+x <- factor(c("si","no","si","si","no", "si","no"), levels =c("si","no"))
+unclass(x)
+
+x <- factor(c("azul","azul","rojo","azul","amarillo","verde","azul"))
+x
+table(x)
+
+#Valores Faltantes
+x <- c(1,2,NA,10,3)
+is.na(x)
+is.nan(x)
+
+x <- c(1,2,NaN,10,3)
+is.na(x)
+is.nan(x)
+
+
+#Data Frames
+x <- data.frame(Erick = 1:4 , Lori = c(T,T,F,F))
+row.names(x) <- c("Primero","Segundo","Tercero","Cuarto")
+x
+nrow(x)
+ncol(x)
+attributes(x)
+names(x) <- c("Yarely","Karen")
+x
+
+#Los nombres nos son exclusivos de data frames
+x <- 1:3
+names(x) #NULL
+names(x) <- c("Hugo","Paco","Luis")
+x
+
+x <- list(a = 1:10,b = 100:91, c = 51:60)
+x
+names(x) <- c("Seq1","Seq2","Seq3")
+x
+
+
+m <- matrix(1:4,2,2)
+m
+attributes(m)
+dimnames(m) <- list(c("fil1","fil2"),c("col1","col2"))
+m
+
+
+m <- matrix(NA,6,6)
+m
+dimnames(m) <- list(c(1:6),c("A","B","C","D","E","F"))
+m
+
+
+#Lectura de datos
+getwd()
+setwd("~/GitHub/Programaci-n_Actuarial_III_OT16")
+data <- read.csv("Datos_S&P.csv")
+data <- read.table("Datos_S&P.csv",T,",")
+data
+
+
+
+
+
+
+
+
+
+
+
+
