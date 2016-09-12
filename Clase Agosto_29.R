@@ -170,14 +170,204 @@ data <- read.csv("Datos_S&P.csv")
 data <- read.table("Datos_S&P.csv",T,",")
 data
 
+x <- c(T,T,F,T,F,T,"a",5L,1+5i,2+7i,4+8i,3,3,4,.3,.23)
+class(x)
+x
+
+#Uso de dput y dget
+y <- data.frame(a =1 , b ="a")
+dput(y)
+dput(y, file = "y.R")
+nueva.y <- dget("y.R")
+y
+nueva.y
+
+x <- "Programación Acturial III"
+y <- data.frame(a=1,b="a")
+dump(c("x","y"), file = "data.R")
+rm(x,y)
+x
+source("data.R")
+x <- airquality
+x
+dput(x, file = "HEAD_Airquality.R")
+guardo <- dget("HEAD_Airquality.R")
+guardo
+
+con <- url("http://www.fcfm.buap.mx/","r")
+x <- readLines(con,7)
+x
+
+#Creamos un vector
+x <- c("a","b","c","c","d","e")
+x
+#Extramos []
+x[1]
+x[2]
+#también podemos con secuencias de elementos
+x[1:4]
+#es posible extraer elmentos que cumplen condiciones
+x[x>"b"]
+#de Manera equivalente
+u <- x=="c"
+u
+x[u]
+
+#Creamos una lista
+x <- list(foo = 1:4, bar = 0.6)
+#extraemos el primer elemento de la lista 
+# este elmento es una lista  que contiene una secuencia 
+x[1]
+#extramos nuevamente el primer elemento de la lista,
+#ahora el elemtento es la lista en si 
+x[[1]]
+#Extraemos un elemento por nombre 
+x$bar
+x[["bar"]]
+x["bar"]
+x$foo[2]
+
+#Creamos una lista de 3 elementos
+x <- list(foo = 1:4, bar = .6, baz = "Hola")
+#Extraemos el primer y tercer elemento de una lista
+x [c(1,3)]
+
+x[[c(1,3)]]
+name <- "foo"
+x[[name]]
+x$name
+x$foo
+
+#Se pueden extraer elementos de elementos extraídos
+x <- list(a = list(10, 12, 14), b =list(3.14,2.81))
+x[[c(1,3)]]
+x[[1]][[3]]
+x[[1]][3]
+
+
+#Estración de matrices
+x <- matrix(1:6,2,3)
+x
+x[1,2]
+x[2,1]
+x[1,]
+x[,2]
+#Con drop = False, se mantiene la dimensión y
+#el resultado será una matriz
+x[1,2,drop = FALSE]
+#Si dejamos solamente el espacio, el resultado será un vector
+x[1,]
+#Si usamos drop= false, el resultado será un matriz 
+x[1,,drop=FALSE]
+x <- list(aardvarrk =1:5)
+x$a
+x[["a"]]
+x[["a",exact=FALSE]]
+x[["aa"]]
+x$aa
+x$rd
+airquality$O
+
+#Valores faltantes
+airquality[1:6,]
+completos <- complete.cases(airquality)
+completos
+airquality[completos,]
+airquality[completos,][1:6,]
+airquality[1:6,][completos,]
+
+x <- 1:4; y <- 6:9
+x+y
+x > 2
+x >= 2
+y == 8
+y==8
+x*y
+x/y
+x <- 1:4; y <- 6:8
+x+y
+x <- matrix(1:4, 2,2); y <- matrix(rep(10,4),2,2)
+x
+y
+x*y
+x/y
+x %*% y
+
+#Estructuras de control
+x <- c("a","b","c","d")
+for(i in 1:10){print(i)}
+for (i in 1:4){print(x[i])}
+for (i in seq_along(x)){print(x[i])} #Esto sirve cuándo no sabemos cuantos elementos tiene nuestro ciclo
+for(letra in x){print(letra)}
+for(i in 1:4)print(x[i])
 
 
 
+y <- matrix(1:6,2,3)
+y
+for (i in y[1,]){print(i)}
+for(i in y[2,]){print(i)}
+for (i in 1:nrow(y)){for(j in 1:ncol(y)){print(x[i,j])}}
+for(i in seq_len(nrow(y))){for (j in seq_len(ncol(y))) {print(x[i,j])}}
+#las últimas dos lineas son las mismas
+
+#Ciclo while
+z <- 5
+while (z>=3 && z<=10) {
+  print(z)
+  moneda <- rbinom(1,1,0.5)
+  if(moneda==1){ #Caminata eleatoria
+    z <- z+1
+  } else {
+      z <- z-1
+    }
+}
+
+z <- 5
+a <- vector("numeric")
+while (z>=3 && z<=10){
+  print(z)
+  a <- c(a,z)
+  moneda <- rbinom(1,1,0.5)
+  if(moneda==1){ #Caminata eleatoria
+    z <- z+1
+  } else {
+    z <- z-1
+  }
+}
+plot(a,type = "l")
 
 
+#Ejercicio
 
+b <- 0
+c <- 0
+d <- 0
+a <- vector("numeric")
+for (i in 1:100) {
+  z <- 5
+  
+  while (z>=3 && z<=10){
+    b <- b+1
+    print(z)
+    a <- c(a,z)
+    moneda <- rbinom(1,1,0.5)
+    if(moneda==1){ #Caminata eleatoria
+      z <- z+1
+    } else {
+      z <- z-1
+    }
+  }
+  a[b]
+  if(a[b]==3){
+    c <- c+1
+  } else {
+    d <- d+1
+  }
+}
 
-
+c
+d
 
 
 
